@@ -12,7 +12,6 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 from OpenGL.GLE import *   
 
-
 global esqdir
 global cimabaixo
 global aux1
@@ -37,8 +36,6 @@ estadoluz2 = 0
 lastx=0
 lasty=0
 
-
-
 def piso():
     glColor3f(1, 1, 1) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
@@ -52,8 +49,10 @@ def piso():
     glEnd()
     glPopMatrix()
 
-
-
+'''
+Componente: Fogão
+Aluno: João Batista Gome Silva
+'''
 def fogao_bocas():
     #boca de fogões
     glPushMatrix()
@@ -190,9 +189,70 @@ def fogao():
     glutSolidCube(1)
     glPopMatrix()
 
+'''
+Componente: Luminária
+Aluno: Monaly
+'''
+def luminaria():
+    glPushMatrix()
+    glTranslate(0.0, 1.0, 0.0)
+    glColor3f(1.0, 0.4, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(-90, 1.0, 0.0, 0.0)
+    glTranslate( 0.0, 0.0, 0.3)
+    glutSolidCylinder(0.04,1.0,40,8)
+    glPopMatrix()
+
+    glColor3f(1.0, 0.4, 0.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaÃ§oes no objeto
+    #glTranslate( -0.5, 0.0, 0.0)  #TranstaÃ§ao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #RotaÃ§ao do objeto
+    
+    cont = 1
+    while (cont <= 8): #quanto maior mais fino a ponta( a quant de voltas)
+        cont += 0.3
+        glutSolidTorus(0.06,0.5,20,20)
+        glTranslate( 0.0, 0.0001, 0.035)
+        glScale( 0.9 , 0.9, 0.9)
+    glPopMatrix()
+    glPopMatrix()
+
+'''
+Componente: Bancada
+Aluno: Gabriel
+'''
+def bancada():
+
+    #tabua
+    glColor3f(0.0, 0.6, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -0.7, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.5, 1.5, 0.09)
+    glutSolidCube(1.2)
+    glPopMatrix()
+    
+    #base
+    glColor3f(0.9, 0.6, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -1.35, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1, 1, 1)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+'''
+Componente: Bule
+Aluno: Gabriel
+'''
+def bule():
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(-0.32, -0.37, -2.2)  #Transçao do objeto
+    glutSolidTeapot(0.1)
+    glPopMatrix()
 
 def paredes():
-
     #PAREDE 1
     glColor3f(1, 1, 1) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
@@ -232,38 +292,6 @@ def paredes():
     glEnd()
     glPopMatrix()
 
-
-def bancada():
-
-    #tabua
-    glColor3f(0.0, 0.6, 0.5) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, -0.7, 0.0)  #Transtaçao do objeto
-    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glScale(1.5, 1.5, 0.09)
-    glutSolidCube(1.2)
-    glPopMatrix()
-    
-    #base
-    glColor3f(0.9, 0.6, 0.5) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, -1.35, 0.0)  #Transtaçao do objeto
-    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glScale(1, 1, 1)
-    glutSolidCube(1.2)
-    glPopMatrix()
-
-
-def bule():
-    glColor3f(1.0, 1.0, 1.0) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(-0.32, -0.37, -2.2)  #Transçao do objeto
-    glutSolidTeapot(0.1)
-    glPopMatrix()
-
-
-
-
 def desenho():
     global aux1
     global aux2
@@ -271,14 +299,12 @@ def desenho():
     glPushMatrix()
     glRotatef(90, 0.0, 1.0, 0.0)
 
-
     piso()
+    luminaria()
     paredes()
     bancada()
     bule()
     fogao()
-
-    
 
     #OBJETO 7 - PRATO
 
@@ -293,87 +319,83 @@ def desenho():
     
     glPopMatrix()
 
-
-
-
-
 # ILUMINAÇÃO E APARÊNCIA DOS OBJETOS
 
 def iluminacao_da_cena():
     
     luzAmbiente0=[0.2,0.2,0.2,1.0]
-    luzDifusa0=[1,1,0,1.0]  # ; // "cor"
-    luzEspecular0 = [0.3, 0.3, 0.3, 0.3]  #;// "brilho"
+    luzDifusa0=[0.7,0.7,0.7,1.0]  # ; // "cor"
+    luzEspecular0 = [1.0, 1.0, 1.0, 1.0]  #;// "brilho"
     posicaoLuz0=[0.0, 50.0, 50.0, 1.0]
 
-    luzAmbiente1=[1.0,0.0,0.0,1.0]
-    luzDifusa1=[0.0,1.0,0.0,1.0]  # ; // "cor"
+    luzAmbiente1=[0.0,0.0,0.0,1.0]
+    luzDifusa1=[0.0,0.0,1.0,1.0]  # ; // "cor"
     luzEspecular1 = [0.0, 0.0, 1.0, 1.0]  #;// "brilho"
     posicaoLuz1=[0.0, 50.0, -50.0, 1.0]
 
     luzAmbiente2=[0.0,0.0,0.0,1.0]
-    luzDifusa2=[1.0,0.0,0.0,1.0]  # ; // "cor"
+    luzDifusa2=[1.0,0,0,1.0]  # ; // "cor"
     luzEspecular2 = [1.0, 0.0, 0.0, 1.0]  #;// "brilho"
-    posicaoLuz2=[0.0, 5.0, 0.0, 0.0]  # última coord como 0 pra funcionar como vetor da luz direcional
-    direcao2 = [0.0, -1,0, 0,0]  # direção do vetor do spot
+    posicaoLuz2=[0.0, 1.1, 0.0, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
+    direcao2 = [0.0, -1.0, 0.0]  # direÃ§Ã£o do vetor do spot
 
     #Capacidade de brilho do material
     especularidade=[1.0,1.0,1.0,1.0]
     especMaterial = 60;
 
-    # Especifica que a cor de fundo da janela será branca
-    glClearColor(1.0, 1.0, 1.0, 1.0)
+    # Especifica que a cor de fundo da janela serÃ¡ branca
+    glClearColor(1.0, 1.0, 1.0, 0.0)
 
-    # Habilita o modelo de colorização
+    # Habilita o modelo de colorizaÃ§Ã£o
     glShadeModel(GL_SMOOTH)   # GL_SMOOTH ou GL_FLAT
 
-    #  Define a refletância do material
+    #  Define a refletÃ¢ncia do material
     glMaterialfv(GL_FRONT,GL_SPECULAR, especularidade)
-    #  Define a concentração do brilho
+    #  Define a concentraÃ§Ã£o do brilho
     glMateriali(GL_FRONT,GL_SHININESS,especMaterial)
 
     # Ativa o uso da luz ambiente
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente0)
 
-    # Define os parametros da luz de número 0
+    # Define os parametros da luz de nÃºmero 0
     glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente0)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusa0 )
     glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecular0 )
     glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz0 )
 
-    # Define os parametros da luz de número 1
+    # Define os parametros da luz de nÃºmero 1
     glLightfv(GL_LIGHT1, GL_AMBIENT, luzAmbiente1)
     glLightfv(GL_LIGHT1, GL_DIFFUSE, luzDifusa1 )
     glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular1 )
     glLightfv(GL_LIGHT1, GL_POSITION, posicaoLuz1 )
     
-    # Define os parametros da luz de número 2
+    # Define os parametros da luz de nÃºmero 2
     glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbiente2)
     glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusa2 )
     glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecular2 )
     glLightfv(GL_LIGHT2, GL_POSITION, posicaoLuz2 )
     glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, direcao2); #direcao da luz
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 5); # angulo do cone, de 0 a 180. 
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 50); # angulo do cone, de 0 a 180. 
     
 
-    # Habilita a definição da cor do material a partir da cor corrente
+    # Habilita a definiÃ§Ã£o da cor do material a partir da cor corrente
     glEnable(GL_COLOR_MATERIAL)
-    # Habilita o uso de iluminação
+    # Habilita o uso de iluminaÃ§Ã£o
     glEnable(GL_LIGHTING)
     
-    # Habilita a luz de número 0
+    # Habilita a luz de nÃºmero 0
     if estadoluz0 == 1:
         glEnable(GL_LIGHT0)
     else:
         glDisable(GL_LIGHT0)
         
-    # Habilita a luz de número 1
+    # Habilita a luz de nÃºmero 1
     if estadoluz1 == 1:
         glEnable(GL_LIGHT1)
     else:
         glDisable(GL_LIGHT1)
 
-    # Habilita a luz de número 2
+    # Habilita a luz de nÃºmero 2
     if estadoluz2 == 1:
         glEnable(GL_LIGHT2)
         print('Luz Spot ligada.')
@@ -382,7 +404,6 @@ def iluminacao_da_cena():
     
     # Habilita o depth-buffering
     glEnable(GL_DEPTH_TEST)
-
 
 def tela():
     global angulo
