@@ -275,9 +275,9 @@ def desenho():
     glRotatef(90, 0.0, 1.0, 0.0)
 
 
-    #piso()
-    #paredes()
-    #bancada()
+    piso()
+    paredes()
+    bancada()
     bule()
     fogao()
 
@@ -285,13 +285,13 @@ def desenho():
 
     #OBJETO 7 - PRATO
 
-    # glColor3f(1.0, 1.0, 1.0) # cor RGB
-    # glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    # glTranslate(0.0, -0.35, 0.0)  #Transtaçao do objeto
-    # glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    # glScale(0.3, 0.3, 0.1)
-    # glutSolidTorus(0.8, 0.5 ,100, 100)
-    # glPopMatrix()
+    glColor3f(0, 0, 0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -0.35, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.3, 0.3, 0.1)
+    glutSolidTorus(0.8, 0.5 ,100, 100)
+    glPopMatrix()
     
     
     glPopMatrix()
