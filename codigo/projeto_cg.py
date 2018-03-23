@@ -41,6 +41,230 @@ lastx=0
 lasty=0
 
 
+def piso():
+    glColor3f(1, 1, 1) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -2.0, 0.0)  #Transtaçao do objeto
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glBegin(GL_POLYGON)
+    glVertex3f(3.0, -0.0, -3.0)       # P1
+    glVertex3f(3.0, -0.0, 3.0)       # P2
+    glVertex3f(-3.0, -0.0, 3.0)       # P3
+    glVertex3f(-3.0, -0.0, -3.0)       # P4
+    glEnd()
+    glPopMatrix()
+
+
+
+def fogao_bocas():
+    #boca de fogões
+    glPushMatrix()
+    
+    glTranslatef(0, 0, -0.4)
+    
+    #boca do fogao 1
+    glPushMatrix()
+    glTranslatef(0.32, 0.8, 0.2)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+
+    #boca do fogao 2
+    glPushMatrix()
+    glTranslatef(0, 0.8, 0.2)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+
+    #boca do fogao 3
+    glPushMatrix()
+    glTranslatef(-0.32, 0.8, 0.2)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+
+    #boca do fogao 4
+    glPushMatrix()
+    glTranslatef(0.32, 0.8, 0.6)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+
+    #boca do fogao 5
+    glPushMatrix()
+    glTranslatef(0, 0.8, 0.6)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+
+    #boca do fogao 6
+    glPushMatrix()
+    glTranslatef(-0.32, 0.8, 0.6)
+    glRotatef(90, 1, 0, 0)
+    glutSolidCylinder(0.08, 0.04, 20, 10)
+    glPopMatrix()
+    glPopMatrix()
+
+def fogao_painel():
+    glPushMatrix()
+    glTranslatef(0, 0.5, 0.54)
+    glScalef(1, 0.2, 0.10)
+    glutSolidCube(1)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-0.4, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-0.3, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-0.2, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-0.1, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(-0.0, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(0.1, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(0.2, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.04, 0.04, 20, 10)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(0.35, 0.5, 0.58)
+    glRotatef(90, 0, 0, 1)
+    glutSolidCylinder(0.06, 0.04, 20, 10)
+    glPopMatrix()
+
+def fogao_forno():
+    glPushMatrix()
+    glTranslatef(0, -0.1, .5)
+    glScalef(1, 1, 0.2)
+    glutSolidCube(0.8)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslatef(0, 0.22, .6)
+    glScalef(1, 0.2, 0.2)
+    glutSolidCube(0.8)
+    glPopMatrix()
+
+def fogao_tampa():
+    glPushMatrix()
+    glTranslatef(0, 1.25, -0.5)
+    glScalef(1, 1, 0.05)
+    glutSolidCube(1)
+    glPopMatrix()
+
+def fogao(): 
+    glPushMatrix()
+    glColor3f(1, 1, 1)
+    glTranslatef(0, -1.25, -2.4)
+    fogao_tampa()
+    fogao_painel()
+    fogao_bocas()
+    fogao_forno()
+    glScalef(1, 1.5, 1)
+    glutSolidCube(1)
+
+    glPopMatrix()
+
+
+def paredes():
+
+    #PAREDE 1
+    glColor3f(1, 1, 1) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, 1.0, 3.0)  #Transtaçao do objeto
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glBegin(GL_POLYGON)
+    glVertex3f(3.0, -0.0, -3.0)       # P1
+    glVertex3f(3.0, -0.0, 3.0)       # P2
+    glVertex3f(-3.0, -0.0, 3.0)       # P3
+    glVertex3f(-3.0, -0.0, -3.0)       # P4
+    glEnd()
+    glPopMatrix()
+
+    #PAREDE 2
+    glColor3f(1, 1, 1) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, 1.0, -3.0)  #Transtaçao do objeto
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glBegin(GL_POLYGON)
+    glVertex3f(3.0, -0.0, -3.0)       # P1
+    glVertex3f(3.0, -0.0, 3.0)       # P2
+    glVertex3f(-3.0, -0.0, 3.0)       # P3
+    glVertex3f(-3.0, -0.0, -3.0)       # P4
+    glEnd()
+    glPopMatrix()
+
+    #PAREDE 3
+    glColor3f(1, 1, 1) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(3.0, 1.0, 0.0)  #Transtaçao do objeto
+    glRotatef(90, 0.0, 0.0, 1.0)     #Rotaçao do objeto
+    glBegin(GL_POLYGON)
+    glVertex3f(3.0, -0.0, -3.0)       # P1
+    glVertex3f(3.0, -0.0, 3.0)       # P2
+    glVertex3f(-3.0, -0.0, 3.0)       # P3
+    glVertex3f(-3.0, -0.0, -3.0)       # P4
+    glEnd()
+    glPopMatrix()
+
+
+def bancada():
+
+    #tabua
+    glColor3f(0.0, 0.6, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -0.7, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.5, 1.5, 0.09)
+    glutSolidCube(1.2)
+    glPopMatrix()
+    
+    #base
+    glColor3f(0.9, 0.6, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -1.35, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1, 1, 1)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+
+def bule():
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(-0.32, -0.37, -2.2)  #Transçao do objeto
+    glutSolidTeapot(0.1)
+    glPopMatrix()
+
+
 
 
 def desenho():
@@ -50,72 +274,29 @@ def desenho():
     glPushMatrix()
     glRotatef(90, 0.0, 1.0, 0.0)
 
-    #CUBO   #exemplo
-    glColor3f(1.0, 0.4, 0.0) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, -0.8, 0.0)  #Transtaçao do objeto
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glutSolidCube(0.8)
-    glPopMatrix()
 
-    # OBJETO 5 - Piso
+    #piso()
+    #paredes()
+    #bancada()
+    bule()
+    fogao()
 
-    glColor3f(0.9, 0.6, 0.5) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate( 0.0, -1.0, 0.0)  #Transtaçao do objeto
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(2.0, -0.0, -2.0)       # P1
-    glVertex3f(2.0, -0.0, 2.0)       # P2
-    glVertex3f(-2.0, -0.0, 2.0)       # P3
-    glVertex3f(-2.0, -0.0, -2.0)       # P4
-    glEnd()
-    glPopMatrix()
+    
 
-    # OBJETO 6 - PAREDE 1
+    #OBJETO 7 - PRATO
 
-    glColor3f(1.0, 0.0, 1.0) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, 1.0, 2.0)  #Transtaçao do objeto
-    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(2.0, -0.0, -2.0)       # P1
-    glVertex3f(2.0, -0.0, 2.0)       # P2
-    glVertex3f(-2.0, -0.0, 2.0)       # P3
-    glVertex3f(-2.0, -0.0, -2.0)       # P4
-    glEnd()
-    glPopMatrix()
-
-    # OBJETO 7 - PAREDE 2
-
-    glColor3f(1.0, 0.0, 1.0) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, 1.0, -2.0)  #Transtaçao do objeto
-    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(2.0, -0.0, -2.0)       # P1
-    glVertex3f(2.0, -0.0, 2.0)       # P2
-    glVertex3f(-2.0, -0.0, 2.0)       # P3
-    glVertex3f(-2.0, -0.0, -2.0)       # P4
-    glEnd()
-    glPopMatrix()
-
-    # OBJETO 8 - PAREDE 3
-
-    glColor3f(1.0, 0.0, 1.0) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(2.0, 1.0, 0.0)  #Transtaçao do objeto
-    glRotatef(90, 0.0, 0.0, 1.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(2.0, -0.0, -2.0)       # P1
-    glVertex3f(2.0, -0.0, 2.0)       # P2
-    glVertex3f(-2.0, -0.0, 2.0)       # P3
-    glVertex3f(-2.0, -0.0, -2.0)       # P4
-    glEnd()
+    # glColor3f(1.0, 1.0, 1.0) # cor RGB
+    # glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    # glTranslate(0.0, -0.35, 0.0)  #Transtaçao do objeto
+    # glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    # glScale(0.3, 0.3, 0.1)
+    # glutSolidTorus(0.8, 0.5 ,100, 100)
+    # glPopMatrix()
+    
+    
     glPopMatrix()
 
 
-    glPopMatrix()
 
 
 
@@ -124,8 +305,8 @@ def desenho():
 def iluminacao_da_cena():
     
     luzAmbiente0=[0.2,0.2,0.2,1.0]
-    luzDifusa0=[0.7,0.7,0.7,1.0]  # ; // "cor"
-    luzEspecular0 = [1.0, 1.0, 1.0, 1.0]  #;// "brilho"
+    luzDifusa0=[1,1,0,1.0]  # ; // "cor"
+    luzEspecular0 = [0.3, 0.3, 0.3, 0.3]  #;// "brilho"
     posicaoLuz0=[0.0, 50.0, 50.0, 1.0]
 
     luzAmbiente1=[1.0,0.0,0.0,1.0]
@@ -273,14 +454,14 @@ def Teclado (tecla, x, y):
     global estadoluz2
     print("*** Tratamento de teclas comuns")
     print(">>> Tecla: ",tecla)
-	
+    
     if tecla==chr(27): # ESC ?
         sys.exit(0)
 
     if tecla == b'a':  # A
         aux1 = aux1 - 0.1
         print ("aux1 = ", aux1 )
-	
+    
     if tecla == b's': # S
         aux1 = aux1 + 0.1
         print ("aux1 = ", aux1 )
@@ -341,20 +522,28 @@ def TeclasEspeciais (tecla, x, y):
     else:
         print ("Apertou... " , tecla)
     tela()
-    glutPostRedisplay()   
+    glutPostRedisplay()  
+
+
 
 # Função callback chamada para gerenciar eventos do mouse
 def ControleMouse(button, state, x, y):
     global angulo
     if (button == GLUT_LEFT_BUTTON):
         if (state == GLUT_DOWN): 
-            print(x)
-            print(y)
-		
-    if (button == GLUT_RIGHT_BUTTON):
-        if (state == GLUT_DOWN):   # Zoom-out
-            if (angulo <= 130):
-                angulo += 2
+             if (angulo >= 10):
+                angulo -= 2
+
+
+def Limite(valor):
+    if valor > 1:
+        return 1
+    elif valor < -1:
+        return -1
+    else:
+        return valor
+        
+   
     tela()
     glutPostRedisplay()
 
@@ -376,9 +565,9 @@ glutSpecialFunc (TeclasEspeciais)
 
 # create popup menu */
 
-glutCreateMenu (JoinStyle)
-glutAddMenuEntry (b"Exit", 99)
-glutAttachMenu (GLUT_RIGHT_BUTTON)
+#glutCreateMenu (JoinStyle)
+#glutAddMenuEntry (b"Exit", 99)
+#glutAttachMenu (GLUT_RIGHT_BUTTON)
 
 glutMainLoop()  # Inicia o laço de eventos da GLUT
 
