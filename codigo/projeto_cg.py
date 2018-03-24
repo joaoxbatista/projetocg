@@ -458,6 +458,104 @@ def banquinho():
 
     glPopMatrix()
 
+
+def porta1():
+    
+    glPushMatrix()
+    glTranslate(0.0, 1.0, 0.0)
+    glColor3f(0.0, 1.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(-180, 1.0, 0.0, 0.0)
+    glTranslate( 0.25, 0.75, 0.25)
+    glutSolidCylinder(0.04,0.1,50,8)
+    glPopMatrix()
+
+    glColor3f(0.0, 1.0, 0.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaÃ§oes no objeto
+    glTranslate( -0.5, 0.0, 0.0)  #TranstaÃ§ao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #RotaÃ§ao do objeto
+    cont = 1
+    glPopMatrix()
+    glPopMatrix()
+
+
+def porta2():
+
+    glPushMatrix()
+    glTranslate(0.0, 1.0, 0.0)
+    glColor3f(0.0, 1.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(-180, 1.0, 0.0, 0.0)
+    glTranslate( 0.25, 0.19, 0.25)
+    glutSolidCylinder(0.04,0.1,50,8)
+    glPopMatrix()
+
+    glColor3f(0.0, 1.0, 0.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaÃ§oes no objeto
+    glTranslate( -0.5, 0.0, 1.0)  #TranstaÃ§ao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #RotaÃ§ao do objeto
+    cont = 1
+    glPopMatrix()
+    glPopMatrix()
+
+def geladeira(): 
+
+    porta1()
+    porta2()
+
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+
+    #Gelão
+    glColor3f(0.5, 0.5, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -0.49, 0.0)  #Transtaçao do objeto
+    glScale(0.6, 0.8, 0.8)
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glutSolidCube(1)
+    glPopMatrix()
+
+
+    #Gelão2  
+    glColor3f(0.5, 0.5, 0.5) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, 0.25, 0.0)  #Transtaçao do objeto
+    glScale(0.6, 0.8, 0.8)
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glutSolidCube(1)
+    glPopMatrix()
+
+    #Gelão3  
+    glColor3f(0.5, 0.5, 0.5)# cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, 0.90, 0.0)  #Transtaçao do objeto
+    glScale(0.6, 0.8, 0.8)
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glutSolidCube(1)
+    glPopMatrix()
+
+     #Gelão4  
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.2, -0.2, 0.0)  #Transtaçao do objeto
+    glScale(0.25, 1.0, 0.7)
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glutSolidCube(1.1)
+    glPopMatrix()
+
+
+    #Gelão5
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.2, 0.85, 0.0)  #Transtaçao do objeto
+    glScale(0.25, 0.7, 0.7)
+    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glutSolidCube(1)
+    glPopMatrix()
+
+
+    glPopMatrix()
+
 def desenho():
     global aux1
     global aux2
@@ -472,7 +570,7 @@ def desenho():
     bule()
     fogao()
 
-    
+    #luminarias
     glPushMatrix()
     glScale(1.3, 1.0, 0.5)
     bancada()
@@ -531,6 +629,21 @@ def desenho():
     glPopMatrix()
     glPopMatrix()
 
+    #geladeira
+    glPushMatrix()
+    glScale(0.9, 1.3, 1.0)
+    glTranslate(0.1, 0.45, 0.0)
+
+    glPushMatrix()
+    glRotatef(180, 0.0, 1.0, 0.0)
+    glTranslate(-1.0, -1.1, 2.6)
+    geladeira()
+    glPopMatrix()
+    glPopMatrix()
+
+    
+    
+
     #OBJETO 7 - PRATO
 
     # glColor3f(1.0, 1.0, 1.0) # cor RGB
@@ -559,8 +672,8 @@ def iluminacao_da_cena():
     posicaoLuz1=[0.0, 50.0, -50.0, 1.0]
 
     luzAmbiente2=[0.0,0.0,0.0,1.0]
-    luzDifusa2=[1.0,0,0,1.0]  # ; // "cor"
-    luzEspecular2 = [1.0, 0.0, 0.0, 1.0]  #;// "brilho"
+    luzDifusa2=[1.0, 1.0, 1.0, 1.0]  # ; // "cor"
+    luzEspecular2 = [0.0, 0.0, 0.0, 0.0]  #;// "brilho"
     posicaoLuz2=[0.0, 1.1, 0.0, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
     direcao2 = [0.0, -1.0, 0.0]  # direÃ§Ã£o do vetor do spot
 
