@@ -55,6 +55,7 @@ Aluno: João Batista Gome Silva
 '''
 def fogao_bocas():
     #boca de fogões
+    glColor3f(0.0, 0.0, 0.0)
     glPushMatrix()
     
     glTranslatef(0, 0, -0.4)
@@ -109,6 +110,7 @@ def fogao_painel():
     glutSolidCube(1)
     glPopMatrix()
 
+    glColor3f(0.0, 0.0, 0.0) #deixa os botoes pretos
     glPushMatrix()
     glTranslatef(-0.4, 0.5, 0.58)
     glRotatef(90, 0, 0, 1)
@@ -177,16 +179,21 @@ def fogao_tampa():
     glutSolidCube(1)
     glPopMatrix()
 
-def fogao(): 
+def fogao():
+    glColor3f(0.99, 0.99, 0.99)
     glPushMatrix()
-    glColor3f(1, 1, 1)
     glTranslatef(0, -1.25, -2.4)
     fogao_tampa()
-    fogao_painel()
-    fogao_bocas()
+   
     fogao_forno()
+
+    glPushMatrix()
     glScalef(1, 1.5, 1)
     glutSolidCube(1)
+    glPopMatrix()
+
+    fogao_painel()
+    fogao_bocas()
     glPopMatrix()
 
 '''
@@ -197,6 +204,7 @@ def luminaria():
     glPushMatrix()
     glTranslate(0.0, 1.0, 0.0)
     glColor3f(1.0, 0.4, 0.0) # cor RGB
+
     glPushMatrix()
     glRotatef(-90, 1.0, 0.0, 0.0)
     glTranslate( 0.0, 0.0, 0.3)
@@ -215,6 +223,7 @@ def luminaria():
         glTranslate( 0.0, 0.0001, 0.035)
         glScale( 0.9 , 0.9, 0.9)
     glPopMatrix()
+
     glPopMatrix()
 
 '''
@@ -235,9 +244,9 @@ def bancada():
     #base
     glColor3f(0.9, 0.6, 0.5) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, -1.35, 0.0)  #Transtaçao do objeto
+    glTranslate(0.0, -1.36, 0.0)  #Transtaçao do objeto
     glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glScale(1, 1, 1)
+    glScale(1, 1, 1.1)
     glutSolidCube(1.2)
     glPopMatrix()
 
@@ -246,9 +255,10 @@ Componente: Bule
 Aluno: Gabriel
 '''
 def bule():
-    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glColor3f(0.0, 1.0, 1.0) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(-0.32, -0.37, -2.2)  #Transçao do objeto
+    glTranslate(-0.32, -0.23, -2.2)
+    glScale(1.5, 3.0, 1.5)  #Transçao do objeto
     glutSolidTeapot(0.1)
     glPopMatrix()
 
@@ -292,6 +302,162 @@ def paredes():
     glEnd()
     glPopMatrix()
 
+'''
+Componente: Banquinho
+Aluno: Raí
+'''
+
+def banquinho():
+    global preto
+
+    glPushMatrix()
+    #glTranslate(1.0, 0.0, 0.0)
+    #glScalef(1.0, 2.0, 1.0)
+
+    #assento
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.0, 0.0, -1.7)
+    glutSolidCylinder(0.6, 0.05, 40, 3)
+    glPopMatrix()
+
+    #estofado
+    glColor3f(0.0, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.0, 0.0, -1.796)
+    glutSolidCylinder(0.54, 0.05, 40, 3)
+    glPopMatrix()
+
+    glColor3f(0.0, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.0, 0.0, -1.7)
+    glutSolidTorus(0.1,0.5,100,100)
+    glPopMatrix()
+
+    #1a perna
+    glPushMatrix()
+    glRotate(10, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 1.6, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.7, 0.0, 0.0)
+    glutSolidCylinder(0.04, 1.76, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #2a perna
+    glPushMatrix()
+    glRotate(90, 0.0, 1.0, 0.0)
+
+    glPushMatrix()
+    glRotate(10, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 1.6, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.7, 0.0, 0.0)
+    glutSolidCylinder(0.04, 1.76, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #3a perna
+    glPushMatrix()
+    glRotate(180, 0.0, 1.0, 0.0)
+
+    glPushMatrix()
+    glRotate(10, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 1.6, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.7, 0.0, 0.0)
+    glutSolidCylinder(0.04, 1.76, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #4a perna
+    glPushMatrix()
+    glRotate(-90, 0.0, 1.0, 0.0)
+
+    glPushMatrix()
+    glRotate(10, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 1.6, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.7, 0.0, 0.0)
+    glutSolidCylinder(0.04, 1.76, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #1o apoio
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(-45, 0.0, 1.0, 0.0)
+    glTranslate(0.417, 0.7, -0.4)
+    glutSolidCylinder(0.04, 0.8, 40, 3)
+    glPopMatrix()
+
+
+    #2o apoio
+    glPushMatrix()
+    glRotate(90, 0.0, 1.0, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(-45, 0.0, 1.0, 0.0)
+    glTranslate(0.417, 0.7, -0.4)
+    glutSolidCylinder(0.04, 0.8, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #3o apoio
+    glPushMatrix()
+    glRotate(180, 0.0, 1.0, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(-45, 0.0, 1.0, 0.0)
+    glTranslate(0.417, 0.7, -0.4)
+    glutSolidCylinder(0.04, 0.8, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #4o apoio
+    glPushMatrix()
+    glRotate(-90, 0.0, 1.0, 0.0)
+
+    glColor3f(0.9, 0.6, 0.5)
+    glPushMatrix()
+    glRotatef(-45, 0.0, 1.0, 0.0)
+    glTranslate(0.417, 0.7, -0.4)
+    glutSolidCylinder(0.04, 0.8, 40, 3)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
 def desenho():
     global aux1
     global aux2
@@ -300,11 +466,47 @@ def desenho():
     glRotatef(90, 0.0, 1.0, 0.0)
 
     piso()
-    luminaria()
-    paredes()
+    
+    #paredes()
     bancada()
     bule()
     fogao()
+
+
+    glPushMatrix()
+    glScale(0.3, 1.5, 0.3)
+    glTranslate(0.0, 0.0, -1.5)
+    luminaria()
+    glPopMatrix()
+
+    glPushMatrix()
+    glScale(0.3, 1.5, 0.3)
+    glTranslate(0.0, 0.0, 1.5)
+    luminaria()
+    glPopMatrix()
+
+    #banquinhos
+    glPushMatrix()
+    glScale(0.5, 1.3, 0.5)
+    glTranslate(-0.3, 0.38, 0.0)
+
+    glPushMatrix()
+    glTranslate(-1.7, -1.9, -0.5)
+    glScale(0.5, 0.5, 0.5)
+    banquinho()
+    glPopMatrix()
+    glPopMatrix()
+
+    glPushMatrix()
+    glScale(0.5, 1.3, 0.5)
+    glTranslate(-0.3, 0.38, 1.0)
+
+    glPushMatrix()
+    glTranslate(-1.7, -1.9, -0.5)
+    glScale(0.5, 0.5, 0.5)
+    banquinho()
+    glPopMatrix()
+    glPopMatrix()
 
     #OBJETO 7 - PRATO
 
@@ -324,8 +526,8 @@ def desenho():
 def iluminacao_da_cena():
     
     luzAmbiente0=[0.2,0.2,0.2,1.0]
-    luzDifusa0=[0.7,0.7,0.7,1.0]  # ; // "cor"
-    luzEspecular0 = [1.0, 1.0, 1.0, 1.0]  #;// "brilho"
+    luzDifusa0=[0.3,0.3,0.3,1.0]  # ; // "cor"
+    luzEspecular0 = [0.0, 0.0, 0.0, 0.0]  #;// "brilho"
     posicaoLuz0=[0.0, 50.0, 50.0, 1.0]
 
     luzAmbiente1=[0.0,0.0,0.0,1.0]
