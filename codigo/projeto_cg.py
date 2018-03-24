@@ -468,11 +468,18 @@ def desenho():
     piso()
     
     #paredes()
-    bancada()
+   
     bule()
     fogao()
 
+    
+    glPushMatrix()
+    glScale(1.3, 1.0, 0.5)
+    bancada()
+    glPopMatrix()
 
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
     glPushMatrix()
     glScale(0.3, 1.5, 0.3)
     glTranslate(0.0, 0.0, -1.5)
@@ -484,14 +491,18 @@ def desenho():
     glTranslate(0.0, 0.0, 1.5)
     luminaria()
     glPopMatrix()
+    glPopMatrix()
 
     #banquinhos
     glPushMatrix()
-    glScale(0.5, 1.3, 0.5)
-    glTranslate(-0.3, 0.38, 0.0)
+    glRotatef(90, 0.0, 1.0, 0.0)
 
     glPushMatrix()
-    glTranslate(-1.7, -1.9, -0.5)
+    glScale(0.5, 1.3, 0.5)
+    glTranslate(0.5, 0.38, 0.0)
+
+    glPushMatrix()
+    glTranslate(-1.7, -1.9, -1.1)
     glScale(0.5, 0.5, 0.5)
     banquinho()
     glPopMatrix()
@@ -499,12 +510,24 @@ def desenho():
 
     glPushMatrix()
     glScale(0.5, 1.3, 0.5)
-    glTranslate(-0.3, 0.38, 1.0)
+    glTranslate(0.5, 0.38, 1.0)
 
     glPushMatrix()
-    glTranslate(-1.7, -1.9, -0.5)
+    glTranslate(-1.7, -1.9, -0.95)
     glScale(0.5, 0.5, 0.5)
     banquinho()
+    glPopMatrix()
+    glPopMatrix()
+
+    glPushMatrix()
+    glScale(0.5, 1.3, 0.5)
+    glTranslate(0.5, 0.38, 1.0)
+
+    glPushMatrix()
+    glTranslate(-1.7, -1.9, 0.1)
+    glScale(0.5, 0.5, 0.5)
+    banquinho()
+    glPopMatrix()
     glPopMatrix()
     glPopMatrix()
 
