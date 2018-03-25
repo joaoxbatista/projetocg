@@ -59,7 +59,7 @@ def eixos():      #desenha os eixos x e y do plano cartesiano.
     glPopMatrix() 
 
 def piso():
-    glColor3f(1, 1, 1) # cor RGB
+    glColor3f(0.9, 0.9, 0.2) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.0, -2.0, 0.0)  #Transtaçao do objeto
     #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
@@ -585,6 +585,539 @@ def luz():
     glutSolidSphere(0.1,40,40)
     glPopMatrix()
 
+
+def balcao():
+	#base inferior
+    glPushMatrix()
+    glTranslate(0.0, -1.4, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(2.5, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado esquerdo
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.21, 0.9, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado direito
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 3.0, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.21, 0.9, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+	#fundo
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.0, 0.38, 0.0)
+
+    glPushMatrix()
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(2.5, 1.185, 0.04)
+    glTranslate(0.6, 0.6, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #porta 1
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.36)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.20, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    #porta 2
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.34)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 1.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.2, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #gaveta 1
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.32)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 2.0)
+
+    glColor3f(1.0, 0.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.32, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #gaveta 2
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, -0.39, -0.32)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 2.0)
+
+    glColor3f(1.0, 0.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.32, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #gaveta 3
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, -0.785, -0.32)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 2.0)
+
+    glColor3f(1.0, 0.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.55, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #negocio de abrir. porta 1
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(0.85, -0.7, 1.3)
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    #negocio de abrir. porta 2
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(1.13, -0.7, 1.3)
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+
+    #negocio de abrir. gaveta 1
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(2.5, -0.1, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    #negocio de abrir. gaveta 2
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(2.5, -0.5, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    #negocio de abrir. gaveta 3
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(2.5, -0.9, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    #pé 1
+    glPushMatrix()
+    glTranslate(0.1, -1.41, 1.38)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidCylinder(0.07, 0.2, 40, 40)
+    glPopMatrix()
+
+
+    #pé 2
+    glPushMatrix()
+    glTranslate(0.1, -1.41, 0.45)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidCylinder(0.07, 0.2, 40, 40)
+    glPopMatrix()
+
+
+    #pé 3
+    glPushMatrix()
+    glTranslate(2.9, -1.41, 1.38)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidCylinder(0.07, 0.2, 40, 40)
+    glPopMatrix()
+
+
+    #pé 4
+    glPushMatrix()
+    glTranslate(2.9, -1.41, 0.45)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidCylinder(0.07, 0.2, 40, 40)
+    glPopMatrix()
+
+def pia():
+    glPushMatrix()
+    glTranslate(0.0, 0.36, 0.0)
+
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.8, 0.18, 0.04)
+    glTranslate(1.3, 2.6, 8.75)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.8, 0.18, 0.04)
+    glTranslate(1.3, 7.4, 8.75)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(0.0, -0.35, 0.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.5, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    glPushMatrix()
+    glTranslate(1.45, -0.35, 0.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(1.3, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado esquerdo pia
+    glPushMatrix()
+    glTranslate(0.5, -0.6, 0.3)
+    glRotatef(90, 0.0, 0.0, 1.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.2, 0.6, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado direito pia
+    glPushMatrix()
+    glTranslate(1.5, -0.6, 0.3)
+    glRotatef(90, 0.0, 0.0, 1.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.2, 0.6, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #frente pia
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-1.75, 0.0, 0.0)
+
+    glPushMatrix()
+    glTranslate(0.5, -0.6, 0.1)
+    glRotatef(90, 0.0, 0.0, 1.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.2, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    #atras pia
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-1.05, 0.0, 0.0)
+
+    glPushMatrix()
+    glTranslate(0.5, -0.6, 0.1)
+    glRotatef(90, 0.0, 0.0, 1.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.2, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    #fundo pia
+    glPushMatrix()
+    glTranslate(0.2, -0.6, 1.25)
+    glRotatef(90, 0.0, 1.0, 0.0)
+
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.6, 0.8, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+def armario():
+    glPushMatrix()
+    #base superior
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(2.5, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    #base inferior
+    glPushMatrix()
+    glTranslate(0.0, -1.1, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(2.5, 0.9, 0.04)
+    glTranslate(0.6, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado esquerdo
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.94, 0.9, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #lado direito
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 3.0, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.94, 0.9, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+	#fundo
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glTranslate(0.0, 0.38, 0.0)
+
+    glPushMatrix()
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(2.5, 0.9, 0.04)
+    glTranslate(0.6, 0.6, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    #porta 1
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.37)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 0.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.94, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+
+    #porta 2
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.34)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 1.0)
+
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.94, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #porta 3
+    glPushMatrix()
+    glRotatef(90, 0.0, 1.0, 0.0)
+    glTranslate(-3.48, 0.0, -0.32)
+
+    glPushMatrix()
+    glRotatef(-90, 0.0, 0.0, 1.0)
+    glTranslate(0.0, 2.0, 2.0)
+
+    glColor3f(1.0, 0.0, 0.0) # cor RGB
+    glPushMatrix()
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.94, 0.84, 0.04)
+    glTranslate(0.575, 1.0, 0.0)
+    glutSolidCube(1.2)
+    glPopMatrix()
+
+    glPopMatrix()
+
+    glPopMatrix()
+
+    #negocio de abrir. porta 1
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(0.45, -1.0, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+
+    #negocio de abrir. porta 2
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(1.5, -1.0, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    #negocio de abrir. porta 3
+    glColor(0.692, 0.692, 0.692)
+    glPushMatrix()
+    glTranslate(2.5, -1.0, 1.3)
+    glRotatef(90, 1.0, 0.0, 0.0)
+    glutSolidTorus(0.04,0.3,40,100)
+    glPopMatrix()
+
+    glPopMatrix()
+
 def desenho():
     global aux1
     global aux2
@@ -595,10 +1128,15 @@ def desenho():
     piso()
     
     #paredes()
-    eixos()
+    #eixos()
    
-    bule()
+    
+
+    glPushMatrix()
+    glTranslate(1.5, 0.0, 0.0)
     fogao()
+    bule()
+    glPopMatrix()
 
     #luminarias
     glPushMatrix()
@@ -674,7 +1212,7 @@ def desenho():
     #geladeira
     glPushMatrix()
     glScale(0.9, 1.3, 1.0)
-    glTranslate(0.1, 0.45, 0.0)
+    glTranslate(-1.1, 0.45, 0.0)
 
     glPushMatrix()
     glRotatef(180, 0.0, 1.0, 0.0)
@@ -683,6 +1221,29 @@ def desenho():
     glPopMatrix()
     glPopMatrix()
 
+    #balcao
+    glPushMatrix()
+    glScalef(0.5, 1.0, 0.5)
+    glTranslate(-5.0, -0.38, -6.2)
+    glPushMatrix()
+    glColor3f(0.3,0.3, 0.3)
+    pia()
+    glPopMatrix()
+    balcao()
+    glPopMatrix()
+
+
+    glPushMatrix()
+    glScalef(0.5, 1.0, 0.5)
+    glTranslate(-5.0, 2.2, -6.2)
+    armario()
+    glPopMatrix()
+
+    glPushMatrix()
+    glScalef(0.5, 1.0, 0.5)
+    glTranslate(-2, 2.2, -6.2)
+    armario()
+    glPopMatrix()
     
 
     
