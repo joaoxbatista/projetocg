@@ -36,6 +36,28 @@ estadoluz2 = 0
 lastx=0
 lasty=0
 
+def eixos():      #desenha os eixos x e y do plano cartesiano.
+    glColor3f(.9, .1, .1) # cor RGB  eixo X
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glRotatef(90, 0.0, 1.0, 0.0)     #Rotaçao do objeto
+    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
+    glutSolidCylinder(0.01, 4.0, 4, 10)
+    glPopMatrix()
+
+    glColor3f(.1, .1, .9) # cor RGB  eixo Y
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
+    glutSolidCylinder(0.01, 4.0, 4, 10)
+    glPopMatrix()
+
+    glColor3f(.1, .9, .1) # cor RGB  eixo z
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    #glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
+    glutSolidCylinder(0.01, 4.0, 4, 10)
+    glPopMatrix() 
+
 def piso():
     glColor3f(1, 1, 1) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
@@ -43,8 +65,8 @@ def piso():
     #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glBegin(GL_POLYGON)
     glVertex3f(3.0, -0.0, -3.0)       # P1
-    glVertex3f(3.0, -0.0, 3.0)       # P2
-    glVertex3f(-3.0, -0.0, 3.0)       # P3
+    glVertex3f(3.0, -0.0, 1.5)       # P2
+    glVertex3f(-3.0, -0.0, 1.5)       # P3
     glVertex3f(-3.0, -0.0, -3.0)       # P4
     glEnd()
     glPopMatrix()
@@ -255,7 +277,7 @@ Componente: Bule
 Aluno: Gabriel
 '''
 def bule():
-    glColor3f(0.0, 1.0, 1.0) # cor RGB
+    glColor3f(1.0, 0.1, 0.6) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(-0.32, -0.23, -2.2)
     glScale(1.5, 3.0, 1.5)  #Transçao do objeto
@@ -573,6 +595,7 @@ def desenho():
     piso()
     
     #paredes()
+    eixos()
    
     bule()
     fogao()
@@ -832,6 +855,8 @@ def Teclado (tecla, x, y):
     global estadoluz0
     global estadoluz1
     global estadoluz2
+    global esqdir
+    global cimabaixo
     print("*** Tratamento de teclas comuns")
     print(">>> Tecla: ",tecla)
     
@@ -875,6 +900,18 @@ def Teclado (tecla, x, y):
         else:
             estadoluz2 = 0
             glDisable(GL_LIGHT2)
+
+    if tecla == b'r':
+        esqdir = 2.0
+        cimabaixo = 4.9 
+
+    if tecla == b't':
+        esqdir = -1.2
+        cimabaixo = 2.75
+
+    if tecla == b'y':
+        esqdir = 0
+        cimabaixo = 7.44
         
     tela()
     glutPostRedisplay()
@@ -937,7 +974,7 @@ def JoinStyle (msg):
 glutInit(argv)
 glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH)
 glutInitWindowSize(1280,720)
-glutCreateWindow(b"Aula06")
+glutCreateWindow(b"Cozinha")
 glutDisplayFunc(tela)
 glutMouseFunc(ControleMouse)
 glutKeyboardFunc (Teclado)
