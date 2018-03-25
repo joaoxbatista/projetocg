@@ -556,6 +556,13 @@ def geladeira():
 
     glPopMatrix()
 
+def luz():
+    glColor3f(1.0, 1.0, 1.0)
+    glPushMatrix()
+    glScale(0.5, 1.7, 0.5)
+    glutSolidSphere(0.1,40,40)
+    glPopMatrix()
+
 def desenho():
     global aux1
     global aux2
@@ -590,6 +597,18 @@ def desenho():
     luminaria()
     glPopMatrix()
     glPopMatrix()
+
+    #luzes
+    glPushMatrix()
+    glTranslate(0.45, 1.6, 0.0)
+    luz()
+    glPopMatrix()
+
+    glPushMatrix()
+    glTranslate(-0.45, 1.6, 0.0)
+    luz()
+    glPopMatrix()
+    
 
     #banquinhos
     glPushMatrix()
@@ -642,6 +661,8 @@ def desenho():
     glPopMatrix()
 
     
+
+    
     
 
     #OBJETO 7 - PRATO
@@ -667,17 +688,19 @@ def iluminacao_da_cena():
     posicaoLuz0=[0.0, 50.0, 50.0, 1.0]
 
     luzAmbiente1=[0.0,0.0,0.0,1.0]
-    luzDifusa1=[0.0,0.0,1.0,1.0]  # ; // "cor"
-    luzEspecular1 = [0.0, 0.0, 1.0, 1.0]  #;// "brilho"
-    posicaoLuz1=[0.0, 50.0, -50.0, 1.0]
+    luzDifusa1=[1.0,1.0,1.0,1.0]  # ; // "cor"
+    luzEspecular1 = [0.0, 0.0, 0.0, 0.0]  #;// "brilho"
+    posicaoLuz1=[0.0, 2.1, -0.45, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
+    direcao1 = [0.0, -2.0, 0.0]
+
 
     luzAmbiente2=[0.0,0.0,0.0,1.0]
     luzDifusa2=[1.0, 1.0, 1.0, 1.0]  # ; // "cor"
     luzEspecular2 = [0.0, 0.0, 0.0, 0.0]  #;// "brilho"
-    posicaoLuz2=[0.0, 1.1, 0.0, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
-    direcao2 = [0.0, -1.0, 0.0]  # direÃ§Ã£o do vetor do spot
+    posicaoLuz2=[0.0, 2.1, 0.45, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
+    direcao2 = [0.0, -2.0, 0.0]  # direÃ§Ã£o do vetor do spot
 
-    #Capacidade de brilho do material
+    #Capacidade e brilho do material
     especularidade=[1.0,1.0,1.0,1.0]
     especMaterial = 60;
 
@@ -706,6 +729,8 @@ def iluminacao_da_cena():
     glLightfv(GL_LIGHT1, GL_DIFFUSE, luzDifusa1 )
     glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular1 )
     glLightfv(GL_LIGHT1, GL_POSITION, posicaoLuz1 )
+    glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direcao1); #direcao da luz
+    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180. 
     
     # Define os parametros da luz de nÃºmero 2
     glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbiente2)
@@ -713,7 +738,7 @@ def iluminacao_da_cena():
     glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecular2 )
     glLightfv(GL_LIGHT2, GL_POSITION, posicaoLuz2 )
     glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, direcao2); #direcao da luz
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 50); # angulo do cone, de 0 a 180. 
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180. 
     
 
     # Habilita a definiÃ§Ã£o da cor do material a partir da cor corrente
