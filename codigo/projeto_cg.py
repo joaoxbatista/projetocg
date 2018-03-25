@@ -308,11 +308,7 @@ Aluno: Raí
 '''
 
 def banquinho():
-    global preto
-
     glPushMatrix()
-    #glTranslate(1.0, 0.0, 0.0)
-    #glScalef(1.0, 2.0, 1.0)
 
     #assento
     glColor3f(0.9, 0.6, 0.5)
@@ -458,6 +454,10 @@ def banquinho():
 
     glPopMatrix()
 
+'''
+Componente: Geladeira
+Aluno: Mauricésar
+'''
 
 def porta1():
     
@@ -761,7 +761,6 @@ def iluminacao_da_cena():
     # Habilita a luz de nÃºmero 2
     if estadoluz2 == 1:
         glEnable(GL_LIGHT2)
-        print('Luz Spot ligada.')
     else:
         glDisable(GL_LIGHT2)
     
