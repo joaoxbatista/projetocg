@@ -36,27 +36,7 @@ estadoluz2 = 0
 lastx=0
 lasty=0
 
-def eixos():      #desenha os eixos x e y do plano cartesiano.
-    glColor3f(.9, .1, .1) # cor RGB  eixo X
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glRotatef(90, 0.0, 1.0, 0.0)     #Rotaçao do objeto
-    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
-    glutSolidCylinder(0.01, 4.0, 4, 10)
-    glPopMatrix()
 
-    glColor3f(.1, .1, .9) # cor RGB  eixo Y
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
-    glutSolidCylinder(0.01, 4.0, 4, 10)
-    glPopMatrix()
-
-    glColor3f(.1, .9, .1) # cor RGB  eixo z
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    #glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
-    glutSolidCylinder(0.01, 4.0, 4, 10)
-    glPopMatrix()
 
 def piso():
     glColor3f(0.9, 0.9, 0.2) # cor RGB
@@ -284,45 +264,6 @@ def bule():
     glutSolidTeapot(0.1)
     glPopMatrix()
 
-def paredes():
-    #PAREDE 1
-    glColor3f(1, 1, 1) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, 1.0, 3.0)  #Transtaçao do objeto
-    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(3.0, -0.0, -3.0)       # P1
-    glVertex3f(3.0, -0.0, 3.0)       # P2
-    glVertex3f(-3.0, -0.0, 3.0)       # P3
-    glVertex3f(-3.0, -0.0, -3.0)       # P4
-    glEnd()
-    glPopMatrix()
-
-    #PAREDE 2
-    glColor3f(1, 1, 1) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(0.0, 1.0, -3.0)  #Transtaçao do objeto
-    glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(3.0, -0.0, -3.0)       # P1
-    glVertex3f(3.0, -0.0, 3.0)       # P2
-    glVertex3f(-3.0, -0.0, 3.0)       # P3
-    glVertex3f(-3.0, -0.0, -3.0)       # P4
-    glEnd()
-    glPopMatrix()
-
-    #PAREDE 3
-    glColor3f(1, 1, 1) # cor RGB
-    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    glTranslate(3.0, 1.0, 0.0)  #Transtaçao do objeto
-    glRotatef(90, 0.0, 0.0, 1.0)     #Rotaçao do objeto
-    glBegin(GL_POLYGON)
-    glVertex3f(3.0, -0.0, -3.0)       # P1
-    glVertex3f(3.0, -0.0, 3.0)       # P2
-    glVertex3f(-3.0, -0.0, 3.0)       # P3
-    glVertex3f(-3.0, -0.0, -3.0)       # P4
-    glEnd()
-    glPopMatrix()
 
 '''
 Componente: Banquinho
@@ -533,7 +474,6 @@ def geladeira():
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.0, -0.49, 0.0)  #Transtaçao do objeto
     glScale(0.6, 0.8, 0.8)
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glutSolidCube(1)
     glPopMatrix()
 
@@ -543,7 +483,6 @@ def geladeira():
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.0, 0.25, 0.0)  #Transtaçao do objeto
     glScale(0.6, 0.8, 0.8)
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glutSolidCube(1)
     glPopMatrix()
 
@@ -561,7 +500,6 @@ def geladeira():
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.2, -0.2, 0.0)  #Transtaçao do objeto
     glScale(0.25, 1.0, 0.7)
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glutSolidCube(1.1)
     glPopMatrix()
 
@@ -571,13 +509,16 @@ def geladeira():
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.2, 0.85, 0.0)  #Transtaçao do objeto
     glScale(0.25, 0.7, 0.7)
-    #glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glutSolidCube(1)
     glPopMatrix()
 
 
     glPopMatrix()
 
+'''
+Componente: Luz
+Aluno: Raí
+'''
 def luz():
     glColor3f(1.0, 1.0, 1.0)
     glPushMatrix()
@@ -586,6 +527,10 @@ def luz():
     glPopMatrix()
 
 
+'''
+Componente: armarios
+Aluno: Raí
+'''
 def balcao():
 	#base inferior
     glPushMatrix()
@@ -1126,10 +1071,6 @@ def desenho():
 
     piso()
 
-    #paredes()
-    #eixos()
-
-
 
     glPushMatrix()
     glTranslate(1.5, 0.0, 0.0)
@@ -1261,7 +1202,6 @@ def desenho():
 
     glPopMatrix()
 
-# ILUMINAÇÃO E APARÊNCIA DOS OBJETOS
 
 def iluminacao_da_cena():
 
@@ -1283,31 +1223,27 @@ def iluminacao_da_cena():
     posicaoLuz2=[0.0, 2.1, 0.45, 1.0]  # Ãºltima coord como 0 pra funcionar como vetor da luz direcional
     direcao2 = [0.0, -2.0, 0.0]  # direÃ§Ã£o do vetor do spot
 
-    #Capacidade e brilho do material
     especularidade=[1.0,1.0,1.0,1.0]
     especMaterial = 60;
 
-    # Especifica que a cor de fundo da janela serÃ¡ branca
     glClearColor(1.0, 1.0, 1.0, 0.0)
 
-    # Habilita o modelo de colorizaÃ§Ã£o
     glShadeModel(GL_SMOOTH)   # GL_SMOOTH ou GL_FLAT
 
-    #  Define a refletÃ¢ncia do material
     glMaterialfv(GL_FRONT,GL_SPECULAR, especularidade)
-    #  Define a concentraÃ§Ã£o do brilho
+
     glMateriali(GL_FRONT,GL_SHININESS,especMaterial)
 
-    # Ativa o uso da luz ambiente
+
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente0)
 
-    # Define os parametros da luz de nÃºmero 0
+    # Define os parametros da luz ambiente
     glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente0)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusa0 )
     glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecular0 )
     glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz0 )
 
-    # Define os parametros da luz de nÃºmero 1
+    # Define os parametros da luz de numero 1 / bancada
     glLightfv(GL_LIGHT1, GL_AMBIENT, luzAmbiente1)
     glLightfv(GL_LIGHT1, GL_DIFFUSE, luzDifusa1 )
     glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular1 )
@@ -1315,7 +1251,7 @@ def iluminacao_da_cena():
     glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direcao1); #direcao da luz
     glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180.
 
-    # Define os parametros da luz de nÃºmero 2
+    # Define os parametros da luz de numero 2 / bancada
     glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbiente2)
     glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusa2 )
     glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecular2 )
@@ -1324,7 +1260,6 @@ def iluminacao_da_cena():
     glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180.
 
 
-    # Habilita a definiÃ§Ã£o da cor do material a partir da cor corrente
     glEnable(GL_COLOR_MATERIAL)
     # Habilita o uso de iluminaÃ§Ã£o
     glEnable(GL_LIGHTING)
@@ -1356,9 +1291,8 @@ def tela():
     global aux1
     global aux2
 
-# AJUSTE DE APARÊNCIA
 
-    # Especifica que a cor de fundo da janela será branca
+
     glClearColor(0.0, 0.0, 0.0, 1.0)
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # Limpar a tela
@@ -1366,32 +1300,11 @@ def tela():
     glMatrixMode(GL_PROJECTION) # Muda a matriz de projeçao
     glLoadIdentity()# carrega a matriz identidade
 
-    #gluPerspective(angulo, aspecto , near (perto), far(longe) )
-    #  angulo = angulo em graus na direçao y.
-    #  aspecto = deformaçao da janela. normalmente e a razao entre a largura e altura
-    #  near = a menor distancia desenhada
-    #  far = a maior distancia para que o objeto seja desenhado
     gluPerspective(angulo, 1, 0.1, distanciamax) # Especifica a projeção perspectiva
-
-    #glOrtho(left,right,bottom, top, near, far)
-    #  left,right,bottom, top = limites da projeçao
-    #  near = a menor distancia desenhada
-    #  far = a maior distancia para que o objeto seja desenhado
-    #glOrtho(-5,5,-5,5,0.1,500) # Especifica a projeção paralela ortogonal
 
     glMatrixMode(GL_MODELVIEW) # Especifica sistema de coordenadas do modelo
     glLoadIdentity() # Inicializa sistema de coordenadas do modelo
 
-#CÂMERA
-
-    #Pense na câmera como um vetor que aponta para o alvo da cena. #
-    #Cada ponto desse vetor é em 3D (x, y, z)
-    # A última coordenada ajusta a posição da câmera (deitada, de pé, invertida etc)
-
-    #gluLookAt(eyex, eyey, eyez, alvox, alvoy, alvoz, upx, upy, upz)
-    #    eyex, eyey, eyez = posiçao da camera
-    #    alvox, alvoy, alvoz = coordenada para onde a camera olha.
-    #    upx, upy, upz = indica a posiçao vertical da camera.
     gluLookAt(sin(esqdir) * 10, 0 + cimabaixo ,cos(esqdir) * 10, aux1,aux2,0, 0,1,0) # Especifica posição do observador e do alvo
     print('Camera: (' + str( sin(esqdir) * 10) + ',' + str(cimabaixo) + "," + str(cos(esqdir) * 10) + ')')
     print('Alvo: (' + str(aux1) +','+str(aux2)+',0)')
@@ -1405,10 +1318,6 @@ def tela():
     glFlush()                    # Aplica o desenho
 
 
-# FUNÇÕES DO TECLADO E MOUSE
-
-# Função callback chamada para gerenciar eventos de teclas normais
-# Obs.: maiusculo e minúsculo faz diferença.
 def Teclado (tecla, x, y):
     global aux1
     global aux2
@@ -1545,10 +1454,5 @@ glutMouseFunc(ControleMouse)
 glutKeyboardFunc (Teclado)
 glutSpecialFunc (TeclasEspeciais)
 
-# create popup menu */
-
-#glutCreateMenu (JoinStyle)
-#glutAddMenuEntry (b"Exit", 99)
-#glutAttachMenu (GLUT_RIGHT_BUTTON)
 
 glutMainLoop()  # Inicia o laço de eventos da GLUT
