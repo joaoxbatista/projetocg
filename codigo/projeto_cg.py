@@ -10,7 +10,7 @@ from sys import argv
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
-from OpenGL.GLE import *   
+from OpenGL.GLE import *
 
 global esqdir
 global cimabaixo
@@ -56,7 +56,7 @@ def eixos():      #desenha os eixos x e y do plano cartesiano.
     #glRotatef(90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
     glTranslate( 0.0, 0.0, -2.0)  #Transtaçao do objeto
     glutSolidCylinder(0.01, 4.0, 4, 10)
-    glPopMatrix() 
+    glPopMatrix()
 
 def piso():
     glColor3f(0.9, 0.9, 0.2) # cor RGB
@@ -79,9 +79,9 @@ def fogao_bocas():
     #boca de fogões
     glColor3f(0.0, 0.0, 0.0)
     glPushMatrix()
-    
+
     glTranslatef(0, 0, -0.4)
-    
+
     #boca do fogao 1
     glPushMatrix()
     glTranslatef(0.32, 0.8, 0.2)
@@ -206,7 +206,7 @@ def fogao():
     glPushMatrix()
     glTranslatef(0, -1.25, -2.4)
     fogao_tampa()
-   
+
     fogao_forno()
 
     glPushMatrix()
@@ -237,7 +237,7 @@ def luminaria():
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaÃ§oes no objeto
     #glTranslate( -0.5, 0.0, 0.0)  #TranstaÃ§ao do objeto
     glRotatef(-90, 1.0, 0.0, 0.0)     #RotaÃ§ao do objeto
-    
+
     cont = 1
     while (cont <= 8): #quanto maior mais fino a ponta( a quant de voltas)
         cont += 0.3
@@ -262,7 +262,7 @@ def bancada():
     glScale(1.5, 1.5, 0.09)
     glutSolidCube(1.2)
     glPopMatrix()
-    
+
     #base
     glColor3f(0.9, 0.6, 0.5) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
@@ -482,7 +482,7 @@ Aluno: Mauricésar
 '''
 
 def porta1():
-    
+
     glPushMatrix()
     glTranslate(0.0, 1.0, 0.0)
     glColor3f(0.0, 1.0, 0.0) # cor RGB
@@ -520,7 +520,7 @@ def porta2():
     glPopMatrix()
     glPopMatrix()
 
-def geladeira(): 
+def geladeira():
 
     porta1()
     porta2()
@@ -538,7 +538,7 @@ def geladeira():
     glPopMatrix()
 
 
-    #Gelão2  
+    #Gelão2
     glColor3f(0.5, 0.5, 0.5) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.0, 0.25, 0.0)  #Transtaçao do objeto
@@ -547,7 +547,7 @@ def geladeira():
     glutSolidCube(1)
     glPopMatrix()
 
-    #Gelão3  
+    #Gelão3
     glColor3f(0.5, 0.5, 0.5)# cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.0, 0.90, 0.0)  #Transtaçao do objeto
@@ -556,7 +556,7 @@ def geladeira():
     glutSolidCube(1)
     glPopMatrix()
 
-     #Gelão4  
+     #Gelão4
     glColor3f(1.0, 1.0, 1.0) # cor RGB
     glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
     glTranslate(0.2, -0.2, 0.0)  #Transtaçao do objeto
@@ -1053,7 +1053,6 @@ def armario():
     glPushMatrix()
     glRotatef(90, 0.0, 1.0, 0.0)
     glTranslate(-3.48, 0.0, -0.34)
-
     glPushMatrix()
     glRotatef(-90, 0.0, 0.0, 1.0)
     glTranslate(0.0, 2.0, 1.0)
@@ -1121,16 +1120,16 @@ def armario():
 def desenho():
     global aux1
     global aux2
-   
+
     glPushMatrix()
     glRotatef(90, 0.0, 1.0, 0.0)
 
     piso()
-    
+
     #paredes()
     #eixos()
-   
-    
+
+
 
     glPushMatrix()
     glTranslate(1.5, 0.0, 0.0)
@@ -1169,7 +1168,7 @@ def desenho():
     glTranslate(-0.45, 1.6, 0.0)
     luz()
     glPopMatrix()
-    
+
 
     #banquinhos
     glPushMatrix()
@@ -1244,28 +1243,28 @@ def desenho():
     glTranslate(-2, 2.2, -6.2)
     armario()
     glPopMatrix()
-    
 
-    
-    
+
+
+
 
     #OBJETO 7 - PRATO
 
-    # glColor3f(1.0, 1.0, 1.0) # cor RGB
-    # glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
-    # glTranslate(0.0, -0.35, 0.0)  #Transtaçao do objeto
-    # glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
-    # glScale(0.3, 0.3, 0.1)
-    # glutSolidTorus(0.8, 0.5 ,100, 100)
-    # glPopMatrix()
-    
-    
+    glColor3f(1.0, 1.0, 1.0) # cor RGB
+    glPushMatrix()                # Push e Pop Isolam os efeitos das transformaçoes no objeto
+    glTranslate(0.0, -0.6, 0.0)  #Transtaçao do objeto
+    glRotatef(-90, 1.0, 0.0, 0.0)     #Rotaçao do objeto
+    glScale(0.3, 0.3, 0.1)
+    glutSolidTorus(0.8, 0.5 ,100, 100)
+    glPopMatrix()
+
+
     glPopMatrix()
 
 # ILUMINAÇÃO E APARÊNCIA DOS OBJETOS
 
 def iluminacao_da_cena():
-    
+
     luzAmbiente0=[0.2,0.2,0.2,1.0]
     luzDifusa0=[0.3,0.3,0.3,1.0]  # ; // "cor"
     luzEspecular0 = [0.0, 0.0, 0.0, 0.0]  #;// "brilho"
@@ -1314,28 +1313,28 @@ def iluminacao_da_cena():
     glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular1 )
     glLightfv(GL_LIGHT1, GL_POSITION, posicaoLuz1 )
     glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, direcao1); #direcao da luz
-    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180. 
-    
+    glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180.
+
     # Define os parametros da luz de nÃºmero 2
     glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbiente2)
     glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusa2 )
     glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecular2 )
     glLightfv(GL_LIGHT2, GL_POSITION, posicaoLuz2 )
     glLightfv(GL_LIGHT2, GL_SPOT_DIRECTION, direcao2); #direcao da luz
-    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180. 
-    
+    glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 23); # angulo do cone, de 0 a 180.
+
 
     # Habilita a definiÃ§Ã£o da cor do material a partir da cor corrente
     glEnable(GL_COLOR_MATERIAL)
     # Habilita o uso de iluminaÃ§Ã£o
     glEnable(GL_LIGHTING)
-    
+
     # Habilita a luz de nÃºmero 0
     if estadoluz0 == 1:
         glEnable(GL_LIGHT0)
     else:
         glDisable(GL_LIGHT0)
-        
+
     # Habilita a luz de nÃºmero 1
     if estadoluz1 == 1:
         glEnable(GL_LIGHT1)
@@ -1347,7 +1346,7 @@ def iluminacao_da_cena():
         glEnable(GL_LIGHT2)
     else:
         glDisable(GL_LIGHT2)
-    
+
     # Habilita o depth-buffering
     glEnable(GL_DEPTH_TEST)
 
@@ -1377,7 +1376,7 @@ def tela():
     #glOrtho(left,right,bottom, top, near, far)
     #  left,right,bottom, top = limites da projeçao
     #  near = a menor distancia desenhada
-    #  far = a maior distancia para que o objeto seja desenhado 
+    #  far = a maior distancia para que o objeto seja desenhado
     #glOrtho(-5,5,-5,5,0.1,500) # Especifica a projeção paralela ortogonal
 
     glMatrixMode(GL_MODELVIEW) # Especifica sistema de coordenadas do modelo
@@ -1397,16 +1396,16 @@ def tela():
     print('Camera: (' + str( sin(esqdir) * 10) + ',' + str(cimabaixo) + "," + str(cos(esqdir) * 10) + ')')
     print('Alvo: (' + str(aux1) +','+str(aux2)+',0)')
 
-   
-    
+
+
     iluminacao_da_cena()
     glEnable(GL_DEPTH_TEST) # verifica os pixels que devem ser plotados no desenho 3d
 
-    desenho()                    
+    desenho()
     glFlush()                    # Aplica o desenho
 
 
-# FUNÇÕES DO TECLADO E MOUSE    
+# FUNÇÕES DO TECLADO E MOUSE
 
 # Função callback chamada para gerenciar eventos de teclas normais
 # Obs.: maiusculo e minúsculo faz diferença.
@@ -1418,20 +1417,21 @@ def Teclado (tecla, x, y):
     global estadoluz2
     global esqdir
     global cimabaixo
+    global angulo
     print("*** Tratamento de teclas comuns")
     print(">>> Tecla: ",tecla)
-    
+
     if tecla==chr(27): # ESC ?
         sys.exit(0)
 
     if tecla == b'a':  # A
         aux1 = aux1 - 0.1
         print ("aux1 = ", aux1 )
-    
+
     if tecla == b's': # S
         aux1 = aux1 + 0.1
         print ("aux1 = ", aux1 )
-        
+
     if tecla == b'w': # W
         aux2 = aux2 + 0.1
         print ("aux2 = ", aux2 )
@@ -1439,7 +1439,7 @@ def Teclado (tecla, x, y):
     if tecla == b'z': # Z
         aux2 = aux2 - 0.1
         print ("aux2 = ", aux2 )
-        
+
     if tecla == b'0': # 0
         if estadoluz0 == 0:
             estadoluz0 = 1
@@ -1463,17 +1463,20 @@ def Teclado (tecla, x, y):
             glDisable(GL_LIGHT2)
 
     if tecla == b'r':
-        esqdir = 2.0
-        cimabaixo = 4.9 
+        esqdir = 1.6
+        cimabaixo = 1.2
+        angulo = 10
 
     if tecla == b't':
         esqdir = -1.2
         cimabaixo = 2.75
+        angulo = 33
 
     if tecla == b'y':
         esqdir = 0
-        cimabaixo = 7.44
-        
+        cimabaixo = 1.2
+        angulo = 10
+
     tela()
     glutPostRedisplay()
 
@@ -1500,28 +1503,29 @@ def TeclasEspeciais (tecla, x, y):
     else:
         print ("Apertou... " , tecla)
     tela()
-    glutPostRedisplay()  
+    glutPostRedisplay()
 
 
 
 # Função callback chamada para gerenciar eventos do mouse
 def ControleMouse(button, state, x, y):
     global angulo
+    print angulo
     if (button == GLUT_LEFT_BUTTON):
-        if (state == GLUT_DOWN): 
+        if (state == GLUT_DOWN):
              if (angulo >= 10):
                 angulo -= 2
 
 
-def Limite(valor):
+#def Limite(valor):
     if valor > 1:
         return 1
     elif valor < -1:
         return -1
     else:
         return valor
-        
-   
+
+
     tela()
     glutPostRedisplay()
 
@@ -1548,7 +1552,3 @@ glutSpecialFunc (TeclasEspeciais)
 #glutAttachMenu (GLUT_RIGHT_BUTTON)
 
 glutMainLoop()  # Inicia o laço de eventos da GLUT
-
-
-
-
